@@ -45,7 +45,7 @@ DevOps Overview
 
 🧩 Ако има база данни:
 
-* Създай docker-compose.yml за приложение + DB - posle, ako ne me udari murzela
+* Създай docker-compose.yml за приложение + DB - mai check
 
 
 ☁️ Етап 3: Terraform – AWS инфраструктура

@@ -1,8 +1,24 @@
-environment:
-  - DB_HOST=db
-  - DB_PORT=5432
-  - DB_USER=postgres
-  - DB_PASSWORD=postgres
-  - DB_NAME=mydb
-depends_on:
-  - db
+version: '3.8'  
+
+services:
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=mydb
+    ports:
+      - '3000:3000'
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    ports:
+      - '5432:5432'
