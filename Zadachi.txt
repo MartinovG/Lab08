@@ -39,13 +39,13 @@ DevOps Overview
 ✅ Docker:
 
 * Напиши Dockerfile за NestJS - check
-* Добави .dockerignore
-* Тествай локално с docker build и docker run
+* Добави .dockerignore - check
+* Тествай локално с docker build и docker run -check
 
 
 🧩 Ако има база данни:
 
-* Създай docker-compose.yml за приложение + DB
+* Създай docker-compose.yml за приложение + DB - posle, ako ne me udari murzela
 
 
 ☁️ Етап 3: Terraform – AWS инфраструктура
