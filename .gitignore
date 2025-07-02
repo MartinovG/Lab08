@@ -1,6 +1,6 @@
-# compiled output
+# Node.js dependencies and build output
+node_modules/
 /dist
-/node_modules
 /build
 
 # Logs
@@ -12,8 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# OS
+# OS files
 .DS_Store
+Thumbs.db
 
 # Tests
 /coverage
@@ -28,7 +29,7 @@ lerna-debug.log*
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# VSCode settings (except recommended/project settings)
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -42,7 +43,7 @@ lerna-debug.log*
 .env.production.local
 .env.local
 
-# temp directory
+# Temp directories
 .temp
 .tmp
 
@@ -52,9 +53,14 @@ pids
 *.seed
 *.pid.lock
 
-# Diagnostic reports (https://nodejs.org/api/report.html)
+# Diagnostic reports
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-.env
-
-.terraform
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+*.tfvars
+*.tfplan
+*.tfvars.json
