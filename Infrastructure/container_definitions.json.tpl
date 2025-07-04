@@ -12,10 +12,10 @@
     "environment": [
       { "name": "NODE_ENV",    "value": "production" },
       { "name": "DB_HOST",     "value": "${db_host}" },
-      { "name": "DB_PORT",     "value": "5432" },
-      { "name": "DB_USER",     "value": "postgres" },
-      { "name": "DB_PASSWORD", "value": "postgres" },
-      { "name": "DB_NAME",     "value": "mydb" }
+      { "name": "DB_PORT",     "value": "${db_port}" },
+      { "name": "DB_USER",     "value": "${db_user}" },
+      { "name": "DB_PASSWORD", "value": "${db_password}" },
+      { "name": "DB_NAME",     "value": "${db_name}" }
     ],
     "logConfiguration": {
       "logDriver": "awslogs",

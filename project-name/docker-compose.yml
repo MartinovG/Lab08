@@ -3,22 +3,11 @@ version: '3.8'
 services:
   app:
     build: .
-    depends_on:
-      - db
     environment:
-      - DB_HOST=db
+      - DB_HOST=nestjs-postgres.cbso24u0kz31.eu-north-1.rds.amazonaws.com
       - DB_PORT=5432
       - DB_USER=postgres
-      - DB_PASSWORD=postgres
+      - DB_PASSWORD=postgres07
       - DB_NAME=mydb
     ports:
       - '3000:3000'
-
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: mydb
-    ports:
-      - '5432:5432'

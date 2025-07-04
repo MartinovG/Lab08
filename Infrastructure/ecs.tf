@@ -3,17 +3,21 @@ resource "aws_ecs_cluster" "main" {
 }
 
 resource "aws_ecs_task_definition" "nestjs" {
-  family = "nestjs-task"
-  network_mode = "awsvpc"
+  family                   = "nestjs-task"
+  network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu = "256"
-  memory = "512"
-  execution_role_arn = aws_iam_role.ecs_task_execution.arn
+  cpu                      = "256"
+  memory                   = "512"
+  execution_role_arn       = aws_iam_role.ecs_task_execution.arn
 
-  container_definitions = templatefile("${path.module}/container_definitions.json.tpl", {
-    image   = "467198624662.dkr.ecr.eu-north-1.amazonaws.com/your-new-image:latest"
-    db_host = aws_db_instance.postgres.address
-  })
+container_definitions = templatefile("${path.module}/container_definitions.json.tpl", {
+  image       = "467198624662.dkr.ecr.eu-north-1.amazonaws.com/imagecontainer:latest"
+  db_host     = aws_db_instance.postgres.address
+  db_port     = "5432"
+  db_user     = "postgres"
+  db_password = "postgres07"
+  db_name     = "mydb"
+})
 
   depends_on = [aws_cloudwatch_log_group.nestjs]
 }
@@ -27,7 +31,7 @@ resource "aws_ecs_service" "nestjs" {
 
   network_configuration {
     subnets          = [aws_subnet.public.id]
-    security_groups  = [aws_security_group.main.id]
+    security_groups  = [aws_security_group.app.id]
     assign_public_ip = true
   }
 
